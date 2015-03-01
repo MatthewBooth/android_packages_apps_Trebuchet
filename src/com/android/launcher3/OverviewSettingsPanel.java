@@ -13,8 +13,6 @@ import com.android.launcher3.list.SettingsPinnedHeaderAdapter;
 
 public class OverviewSettingsPanel {
     public static final String ANDROID_SETTINGS = "com.android.settings";
-    public static final String ANDROID_PROTECTED_APPS =
-            "com.android.settings.applications.ProtectedAppsActivity";
     public static final int HOME_SETTINGS_POSITION = 0;
     public static final int DRAWER_SETTINGS_POSITION = 1;
     public static final int APP_SETTINGS_POSITION = 2;
@@ -54,8 +52,7 @@ public class OverviewSettingsPanel {
                 res.getString(R.string.icon_labels)};
 
         String[] valuesApp = new String[] {
-                res.getString(R.string.larger_icons_text),
-                res.getString(R.string.protected_app_settings)};
+                res.getString(R.string.larger_icons_text)};
 
 
         mSettingsAdapter = new SettingsPinnedHeaderAdapter(mLauncher);

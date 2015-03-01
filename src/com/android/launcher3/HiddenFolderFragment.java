@@ -100,12 +100,6 @@ public class HiddenFolderFragment extends Fragment {
             }
         });
 
-        ImageView mLock = (ImageView) v.findViewById(R.id.folder_lock_icon);
-        Drawable mLockIcon = mHidden ? getResources().getDrawable(R.drawable.folder_lock_light)
-                : getResources().getDrawable(R.drawable.folder_unlock);
-        mLock.setImageDrawable(mLockIcon);
-        mLock.setOnClickListener(mClicklistener);
-
         mAppsAdapter = new AppsAdapter(mLauncher, R.layout.hidden_apps_list_item);
         mAppsAdapter.setNotifyOnChange(true);
         mAppEntries = loadApps(folder.getComponents());

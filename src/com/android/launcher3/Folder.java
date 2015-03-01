@@ -121,7 +121,6 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
     private boolean mSuppressFolderDeletion = false;
     private boolean mItemAddedBackToSelfViaIcon = false;
     FolderEditText mFolderName;
-    ImageView mFolderLock;
     RelativeLayout mFolderTitleSection;
     private float mFolderIconPivotX;
     private float mFolderIconPivotY;
@@ -238,10 +237,7 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
             mFolderName.setVisibility(View.GONE);
         }
 
-        mFolderLock = (ImageView) findViewById(R.id.folder_lock);
         mFolderTitleSection = (RelativeLayout) findViewById(R.id.folder_title_section);
-        mFolderLock.measure(measureSpec, measureSpec);
-        mFolderLock.setOnClickListener(this);
         mFolderTitleSection.measure(measureSpec, measureSpec);
     }
 
@@ -266,10 +262,6 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
         Object tag = v.getTag();
         if (tag instanceof ShortcutInfo) {
             mLauncher.onClick(v);
-        }
-
-        if (v.getId() == R.id.folder_lock) {
-            startHiddenFolderManager();
         }
     }
 
@@ -1198,8 +1190,6 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
 
         mScrollView.measure(contentAreaWidthSpec, contentAreaHeightSpec);
         mFolderName.measure(contentAreaWidthSpec, MeasureSpec.makeMeasureSpec(
-                mFolderNameHeight, MeasureSpec.EXACTLY));
-        mFolderLock.measure(contentAreaWidthSpec, MeasureSpec.makeMeasureSpec(
                 mFolderNameHeight, MeasureSpec.EXACTLY));
         mFolderTitleSection.measure(contentAreaWidthSpec, MeasureSpec
                 .makeMeasureSpec(mFolderNameHeight, MeasureSpec.EXACTLY));
